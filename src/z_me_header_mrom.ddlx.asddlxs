@@ -1,0 +1,85 @@
+@Metadata.layer: #CORE
+
+@UI:{
+    headerInfo:{
+        typeName: 'Header',
+        typeNamePlural: 'Headers',
+        title:{
+            type:#STANDARD,
+            value: 'Id'
+        }
+    }
+}
+annotate view z_c_header_mrom with
+{
+  @UI.facet: [{ id: 'Header',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Sales Header',
+                  position: 10
+              }
+              ,{ id : 'Items',
+                  purpose: #STANDARD,
+                  type: #LINEITEM_REFERENCE,
+                  label: 'Sales Items',
+                  position: 20,
+                  targetElement: '_Items'
+              }
+  ]
+
+  @UI:{
+      lineItem: [{ position : 10, label: 'Id Header', importance : #HIGH }],
+      identification: [{ position:10, label: 'ID Header' }]
+  }
+  Id;
+
+  @UI:{
+  lineItem: [{ position : 20, label:'Email', importance:#HIGH }],
+  identification: [{ position : 20, label:'Email' }]
+  }
+  Email;
+
+  @UI:{
+  lineItem: [{ position : 30, label:'First Name', importance:#HIGH }],
+  identification: [{ position : 30, label: 'First Name' }]
+  }
+  Firstname;
+
+  @UI:{
+  lineItem: [{ position : 40, label: 'Last Name', importance:#MEDIUM }],
+  identification: [{ position : 40, label: 'Last Name' }]
+  }
+  Lastname;
+
+  @UI:{
+    lineItem: [{ position : 50, label: 'Country', importance:#MEDIUM }],
+    identification: [{ position : 50, label: 'Country' }]
+    }
+  Country;
+
+  @UI:{
+    lineItem: [{ position : 60, label: 'Create On', importance:#MEDIUM }],
+    identification: [{ position : 60, label: 'Create On' }]
+    }
+  Createon;
+
+  @UI:{
+    lineItem: [{ position : 70, label: 'Delivery Date', importance:#MEDIUM }],
+    identification: [{ position : 70, label: 'Delivery Date' }]
+    }
+  Deliverydate;
+
+  @UI:{
+  lineItem: [{ position : 80, label: 'Order Status', importance:#HIGH }],
+  identification: [{ position : 80, label: 'Order Status' }]
+  }
+  Orderstatus;
+
+  @UI:{
+    lineItem: [{ position : 90, label: 'Imagen URL', importance:#MEDIUM }],
+    identification: [{ position : 90, label: 'Imagen URL' }]
+    }
+  Imageurl;
+  
+
+}

@@ -1,0 +1,5 @@
+CLASS zbp_i_header_mrom DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_header_mrom.
+ENDCLASS.
+
+CLASS zbp_i_header_mrom IMPLEMENTATION.
+ENDCLASS.

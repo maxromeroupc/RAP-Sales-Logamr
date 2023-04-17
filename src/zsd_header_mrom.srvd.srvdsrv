@@ -1,0 +1,5 @@
+@EndUserText.label: 'Serv Def Header ventas MR 2'
+define service Zsd_header_mrom {
+  expose z_c_header_mrom as Header;
+  expose z_c_items_mrom as Items;
+}

@@ -1,0 +1,40 @@
+managed; //implementation in class zbp_i_header_mrom unique;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for z_i_header_mrom //alias <alias_name>
+implementation in class zbp_i_header_mrom unique
+persistent table zheader_mrom
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( readonly : update ) Createon, Imageurl;
+  //field ( mandatory ) Id, Email;
+  field ( features : instance ) Id, Email;
+  create;
+  update;
+  delete;
+  //Validaciones
+  validation validateHeader on save { create; update; field Id, Email; }
+  association _Items { create; }
+  //mapping for zheader_mrom corresponding;
+  mapping for zheader_mrom    {      Id      = id;      Email   = email;    }
+}
+
+define behavior for z_i_items_mrom //alias <alias_name>
+implementation in class zbp_i_items_mrom unique
+persistent table zitems_mrom
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  field ( readonly ) Id;
+  field ( features : instance ) Id;
+  update;
+  delete;
+  validation validate_item on save { create; update; field Id; }
+  association _Header;
+  mapping
+       for zitems_mrom corresponding;
+      //mapping for zitems_mrom { Id = id; }
+    }
